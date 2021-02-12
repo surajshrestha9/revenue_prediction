@@ -1,0 +1,50 @@
+{% extends 'rev/nav.html' %}
+{% block body %}
+      <div class="container-fluid">
+        <h1 class="mt-4">Estimate Revenue {% if model_name %}of {{model_name}}{% endif %}</h1>
+
+        <p>Please fill up the required field in the form needed to estimate the Revenue.</p>
+        <form class="row col-sm-12" action="" method="post">
+          {% csrf_token %}
+          <div class="col-sm-6 form-group">
+            <label>Total Arrival</label>
+            <input type="text" class="form-control" placeholder="Total Arrival" name="total_arrival" value="{{total_arrival}}" required>
+          </div>
+          <div class="col-sm-6 form-group">
+            <label>Average Length of Stay(days)</label>
+            <input type="text" class="form-control" placeholder="Average Length of Stay(days)" name="average_length_of_stay" value="{{average_length_of_stay}}" required>
+          </div>
+          <div class="col-sm-6 form-group">
+            <label>Trekking & Mountaineering</label>
+            <input type="text" class="form-control" placeholder="Trekking & Mountaineering" name="trekking_and_mountaineering" value="{{trekking_and_mountaineering}}" required>
+          </div>
+          <div class="col-sm-6 form-group">
+            <label>Holiday Pleasure</label>
+            <input type="text" class="form-control" placeholder="Holiday Pleasure" name="holiday_pleasure" value="{{holiday_pleasure}}" required>
+          </div>
+          <div class="col-sm-6 form-group">
+            <label>Pilgrimage</label>
+            <input type="text" class="form-control" placeholder="Pilgrimage" name="pilgrimage" value="{{pilgrimage}}" required>
+          </div>
+          <div class="col-sm-6 form-group">
+            <label>Business</label>
+            <input type="text" class="form-control" placeholder="Business" name="business"  value="{{business}}" required>
+          </div>
+
+          <div class="col-sm-6 form-group">
+            <label>Total Foreign Exchange Earning from Tourism (Rs. in millions)</label>
+            <input type="text" class="form-control" placeholder="Total Foreign Exchange Earning from Tourism (Rs. in millions)" name="total_foreign_exchange" value="{{total_foreign_exchange}}" required>
+          </div>
+
+          <div class="col-sm-12 text-center">
+            <button class="btn btn-primary" type="submit">Estimate</button>
+          </div>
+        </form>
+        {% if result %}
+          <div class="container-fluid d-flex align-item-center" style="margin-top:20px;">
+            <h3>Predicted Result: </h3>
+            <h2>${{result}} (in million)</h2>
+          </div>
+        {% endif %}
+      </div>
+{% endblock %}

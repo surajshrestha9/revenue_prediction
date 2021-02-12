@@ -1,0 +1,26 @@
+.sidebar-heading{
+    position: absolute;
+    right: 20px;
+}
+
+/*upload form in upload.html*/
+.upload-form{
+    margin-top: 40px;
+}
+.upload-form input{
+    margin-right: 5px;
+}
+
+.models_generated{
+    margin-top: 40px;
+}
+.models_generated ul{
+    padding: 0;
+}
+.models_generated li{
+    margin: 10px 0;
+    list-style: none;
+    background-color: #ededed61;
+    height: 50px;
+    padding: 5px 30px;
+}

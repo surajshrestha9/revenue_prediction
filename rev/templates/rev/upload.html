@@ -1,0 +1,41 @@
+{% extends 'rev/nav.html' %}
+{% block body %}
+  {% for message in messages %}
+        {% if message.tags == 'error' %}
+            <div class="alert alert-danger">
+        {% endif %}
+        {% if message.tags == 'success' %}
+            <div class="alert alert-success">
+        {% endif %}
+                <a class="close" href="#" data-dismiss="alert">×</a>
+                {{ message }}
+            </div>
+    {% endfor %}
+      <div class="container-fluid">
+        <h1 class="mt-4 text-center">Upload CSV file</h1>
+        <div class="container-fluid">
+          <form action="" onsubmit="validate()" class="upload-form" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="col-sm-10 form-group">
+                  <label>Please Upload the csv file here</label>
+              </div>
+              <div class="form-group">
+                  <input class="col-sm-3 form-control float-left" type="file" name="csv">
+                  <button class="col-sm-1 btn btn-primary form-control" type="submit">Uplaod</button>
+              </div>
+          </form>
+        </div>
+        <div class="models_generated container-fluid">
+            <h4>Models Generated</h4>
+            <ul>
+                {% for file in files_sav %}
+                    <li>
+                        {{file}}
+                        <a href="{% url 'estimation' model_name=file %}" class="float-right btn btn-primary">Estimate</a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+        </div>
+      </div>
+{% endblock %}
