@@ -15,3 +15,12 @@ class Parameters(models.Model):
     def __str__(self):
         return str(self.id) + ' - ' + str(self.year)
 
+class Account(models.Model):
+    first_name = models.CharField(max_length=290)
+    last_name = models.CharField(max_length=290)
+    username = models.CharField(max_length=290)
+    password = models.CharField(max_length=290)
+    email = models.CharField(max_length=290)
+
+    def __str__(self):
+        return str(self.first_name) + ' - ' + str(self.username)

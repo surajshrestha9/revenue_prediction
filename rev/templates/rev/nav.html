@@ -29,9 +29,13 @@
       <div class="list-group list-group-flush">
         <a href="{% url 'index' %}" class="list-group-item list-group-item-action bg-light">Home</a>
         <a href="{% url 'aboutus' %}" class="list-group-item list-group-item-action bg-light">About Us</a>
+        <a href="{% url 'login' %}" class="list-group-item list-group-item-action bg-light">Log In</a>
+        {% if request.session.username %}
         <a href="{% url 'upload' %}" class="list-group-item list-group-item-action bg-light">Upload</a>
         <a href="{% url 'estimation' %}" class="list-group-item list-group-item-action bg-light">Estimation</a>
         <a href="{% url 'photos' %}" class="list-group-item list-group-item-action bg-light">Photos</a>
+        <a href="{% url 'logout' %}" class="list-group-item list-group-item-action bg-light">Log out</a>
+        {% endif %}
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
