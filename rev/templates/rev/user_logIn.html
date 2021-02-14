@@ -1,0 +1,50 @@
+{% extends 'rev/nav.html' %}
+{% block body %}
+{% for message in messages %}
+    {% if message.tags == 'error' %}
+        <div class="alert alert-danger">
+    {% endif %}
+            <a class="close" href="#" data-dismiss="alert">×</a>
+            {{ message }}
+        </div>
+{% endfor %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-md-2"></div>
+        <div class="col-lg-6 col-md-8 login-box">
+            <div class="col-lg-12 login-key">
+                <i class="fa fa-key" aria-hidden="true"></i>
+            </div>
+            <div class="col-lg-12 login-title">
+                Login
+            </div>
+
+            <div class="col-lg-12 login-form">
+                <div class="col-lg-12 login-form">
+                    <form action="{% url 'login' %}"method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label class="form-control-label">USERNAME</label>
+                            <input type="text" name="username" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label">PASSWORD</label>
+                            <input type="password" name="password" class="form-control" i>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-lg-12 login-btm login-button">
+                                <button type="submit" class="btn btn-outline-primary">LOGIN</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="text-align:center;">
+                            <a href="{% url 'signup' %}" style="font-weight:bold; text-decoration:underline;">Create Account?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

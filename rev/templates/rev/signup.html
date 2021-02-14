@@ -1,0 +1,27 @@
+{% extends 'rev/nav.html' %}
+{% block body %}
+{% for message in messages %}
+    {% if message.tags == 'error' %}
+        <div class="alert alert-danger">
+    {% endif %}
+            <a class="close" href="#" data-dismiss="alert">×</a>
+            {{ message }}
+        </div>
+{% endfor %}
+<div class="container">
+   <div class="sign-up-form">
+       <h1>Sign Up</h1>
+       <form action="{% url 'signup' %}"method="post">
+            {% csrf_token %}
+            <div class="group"> <input id="fname" name="fname" type="text" class="input" placeholder="First Name"> </div>
+            <div class="group"> <input id="lname"  name="lname" type="text" class="input" placeholder="Last Name"> </div>
+            <div class="group"> <input id="user" name="username" type="text" class="input" placeholder="Create your Username"> </div>
+           <div class="group"> <input id="email" name="email" type="text" class="input" placeholder="Enter your email address"> </div>
+           <div class="group"> <input id="pass" name="pass" type="password" class="input" data-type="password" placeholder="Create your password"> </div>
+           <div class="group"> <input id="repass" name="repass" type="password" class="input" data-type="password" placeholder="Repeat your password"> </div>
+            <div class="group"> <input type="submit" class="button" value="Submit">
+            <a href="{% url 'login' %}" style="margin-left: 220px;  font-weight:bold; text-decoration:underline;">Log In Instead</a></div>
+       </form>
+    </div>
+</div>
+{% endblock %}
